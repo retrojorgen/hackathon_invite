@@ -6,7 +6,9 @@ var hackathon_invite = {
     browserWindowDocument : $(document),
     body : $('body'),
     currentInput : $("#current-input"),
-    c64Output : $(".c64-output")
+    c64Output : $(".c64-output"),
+    inviteLoadingScreen : $(".invite-loading"),
+    inviteScreen : $(".invite")
   },
   init : function () {
     this.bindUIElements();
@@ -46,7 +48,8 @@ var hackathon_invite = {
         hackathon_invite.addOutputLine("please specify which file to load", hackathon_invite.checkOverflow);        
         break;
       case 'load invite.j64':
-        hackathon_invite.addOutputLine("loading invite.j64", hackathon_invite.checkOverflow);        
+        hackathon_invite.el.inviteLoadingScreen.addClass("show-block");
+        setTimeout(hackathon_invite.loadInvite, 3000);
         break;
       case '?' :
         hackathon_invite.addOutputLine("Available commands: list, load, ?, clear", hackathon_invite.checkOverflow);
@@ -63,6 +66,9 @@ var hackathon_invite = {
         break;
     }
     callback();
+  },
+  loadInvite : function () {
+    hackathon_invite.el.inviteScreen.addClass("show-block");
   },
   addOutputLine : function (output, callback) {
     var element = $('<p>').html(output);

@@ -30,6 +30,43 @@
 @-o-keyframes blinkingCursor {.blinkingCursorKeyframes;}
 @keyframes blinkingCursor {.blinkingCursorKeyframes;}
 
+@-webkit-keyframes floatingLoading {.floatingLoadingKeyframes;}
+@-moz-keyframes floatingLoading {.floatingLoadingKeyframes;}
+@-ms-keyframes floatingLoading {.floatingLoadingKeyframes;}
+@-o-keyframes floatingLoading {.floatingLoadingKeyframes;}
+@keyframes floatingLoading {.floatingLoadingKeyframes;}
+
+@-webkit-keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
+@-moz-keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
+@-ms-keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
+@-o-keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
+@keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
+
 .blinkingCursorKeyframes () {
   50%  {opacity : 0;}
+}
+
+.floatingLoadingKeyframes () {
+  0%  {margin-top: 0px;}
+  25%  {margin-top: -10px;}
+  75%  {margin-top: 10px;}
+  100%  {margin-top: 0px;}
+}
+
+.loadingCharacterAnimationKeyframes () {
+  16% {
+    background-image: url(char-anim2.png);
+  }
+  32% { 
+    background-image: url(char-anim3.png);
+  }
+  48% { 
+    background-image: url(char-anim4.png);
+  }
+  64% { 
+    background-image: url(char-anim5.png);
+  }
+  86% { 
+    background-image: url(char-anim6.png);
+  }
 }
