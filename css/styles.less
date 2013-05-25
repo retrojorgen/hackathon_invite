@@ -68,19 +68,28 @@ body {
       top: 0;
       display: none;
       .invite-loading-header {
-        top: 40%;
+        position:relative;
+        top: 30%;
         margin: 0;
         padding: 0;
         .animation(floatingLoading, 1s, 0s, infinite);
+        h2 {
+          font-size: 0.6em;
+        }
       }
-      .character-animation {
-        top: 40%;
+      .character-animation-container {
+        position: relative;
         left: 40%;
-        position: absolute;
-        width: 100px;
-        height: 150px;
-        background-image: url(char-anim1.png);
-        .animation(loadingCharacterAnimation,1s,0s, infinite);
+        width:100px;
+        height:150px;
+        .animation(loadingCharacterMovement, 10s,0s, infinite);
+        .character-animation {
+          position: relative;
+          width:100%;
+          height: 100%;
+          background-image: url(char-anim1.png);
+          .animation(loadingCharacterAnimation,1s,0s, infinite);
+        }
       }
       &.show-block {
         display: block;

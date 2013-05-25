@@ -42,16 +42,29 @@
 @-o-keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
 @keyframes loadingCharacterAnimation {.loadingCharacterAnimationKeyframes;}
 
+@-webkit-keyframes loadingCharacterMovement {.loadingCharacterMovementKeyframes;}
+@-moz-keyframes loadingCharacterMovement {.loadingCharacterMovementKeyframes;}
+@-ms-keyframes loadingCharacterMovement {.loadingCharacterMovementKeyframes;}
+@-o-keyframes loadingCharacterMovement {.loadingCharacterMovementKeyframes;}
+@keyframes loadingCharacterMovement {.loadingCharacterMovementKeyframes;}
+
 .blinkingCursorKeyframes () {
   50%  {opacity : 0;}
 }
 
 .floatingLoadingKeyframes () {
   0%  {margin-top: 0px;}
-  25%  {margin-top: -10px;}
-  75%  {margin-top: 10px;}
+  25%  {margin-top: -20px;}
+  75%  {margin-top: 20px;}
   100%  {margin-top: 0px;}
 }
+
+.loadingCharacterMovementKeyframes () {
+  0%  {left: 0;}
+  100%  {left: 100%;}
+}
+
+
 
 .loadingCharacterAnimationKeyframes () {
   16% {

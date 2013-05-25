@@ -14,55 +14,59 @@ var hackathon_invite = {
     this.bindUIElements();
   },
   bindUIElements : function () {
-   this.el.browserWindowDocument.keydown(function(event) { //Dirty hack
-    if(event.which === 8) {
-      event.preventDefault(); 
-      hackathon_invite.el.currentInput.text(hackathon_invite.backspace(hackathon_invite.el.currentInput.text()));
-    }
-  });    
-    this.el.browserWindow.on("keypress", this.registerKey);
-
+   this.el.browserWindowDocument.keydown(this.registerKey);
   },
   registerKey : function (event) {
-
-    switch(event.keyCode) {
-
+    switch(event.which) {
+      case 8:
+        event.preventDefault(); 
+        hackathon_invite.el.currentInput.text(hackathon_invite.backspace(hackathon_invite.el.currentInput.text()));
+        break;
       case 13:
         hackathon_invite.inputInterpreter(function () {
           hackathon_invite.clearInput();
         });
         break;  
       default:
-        hackathon_invite.el.currentInput.append(String.fromCharCode(event.keyCode));
+        if(event.which == "190") {
+          hackathon_invite.el.currentInput.append(".");
+          break;
+        }
+        if(event.which == "190") {
+          hackathon_invite.el.currentInput.append(".");
+          break;
+        }
+        console.log(event.which);        
+        hackathon_invite.el.currentInput.append(String.fromCharCode(event.which));
       break; 
     }
   },
   inputInterpreter : function (callback) {
     switch(hackathon_invite.el.currentInput.text()) {
-      case 'list':
+      case 'LIST':
         hackathon_invite.addOutputLine("Files available", hackathon_invite.checkOverflow);
         hackathon_invite.addOutputLine("invite.j64", hackathon_invite.checkOverflow);
         hackathon_invite.addOutputLine("", hackathon_invite.checkOverflow);
         break;
-      case 'load':
+      case 'LOAD':
         hackathon_invite.addOutputLine("please specify which file to load", hackathon_invite.checkOverflow);        
         break;
-      case 'load invite.j64':
+      case 'LOAD INVITE.J64':
         hackathon_invite.el.inviteLoadingScreen.addClass("show-block");
-        setTimeout(hackathon_invite.loadInvite, 3000);
+        setTimeout(hackathon_invite.loadInvite, 10000);
         break;
       case '?' :
-        hackathon_invite.addOutputLine("Available commands: list, load, ?, clear", hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Available commands: list, load, help, clear", hackathon_invite.checkOverflow);
         break;
-      case 'help' :
-        hackathon_invite.addOutputLine("Available commands: list, load, ?, clear", hackathon_invite.checkOverflow);                        
+      case 'HELP' :
+        hackathon_invite.addOutputLine("Available commands: list, load, help, clear", hackathon_invite.checkOverflow);                        
         break;
-      case 'clear' :
+      case 'CLEAR' :
         hackathon_invite.clearLines();
         break;        
       default:
         hackathon_invite.addOutputLine("Invalid command: " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
-        hackathon_invite.addOutputLine("Try ? for list of commands. " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Try help for list of commands. ", hackathon_invite.checkOverflow);
         break;
     }
     callback();
