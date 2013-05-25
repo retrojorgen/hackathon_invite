@@ -14,3 +14,22 @@
 @c64-border : rgba(122,111,225,1);
 @c64-input-background : rgba(58,46,168,1);
 @c64-input : rgba(122,111,225,1);
+
+/** MIXINS **/
+
+.animation (@name, @duration: 300ms, @delay: 0s, @ease: ease, @fill-mode: none) {
+  -webkit-animation: @name @duration @delay @ease @fill-mode;
+  -moz-animation:    @name @duration @delay @ease @fill-mode;
+  -ms-animation:     @name @duration @delay @ease @fill-mode;
+  animation:         @name @duration @delay @ease @fill-mode;
+}
+
+@-webkit-keyframes blinkingCursor {.blinkingCursorKeyframes;}
+@-moz-keyframes blinkingCursor {.blinkingCursorKeyframes;}
+@-ms-keyframes blinkingCursor {.blinkingCursorKeyframes;}
+@-o-keyframes blinkingCursor {.blinkingCursorKeyframes;}
+@keyframes blinkingCursor {.blinkingCursorKeyframes;}
+
+.blinkingCursorKeyframes () {
+  50%  {opacity : 0;}
+}

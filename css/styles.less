@@ -41,12 +41,22 @@ body {
     }    
 
     .c64-output {
-      max-height: 90%;
+      height: 100%;
       width: 100%;
       p {
         padding: 0;
         margin: 0;
         line-height: 1.2em;
+        &#current-input {
+          display: inline;
+        }
+        &#blinker {
+          display: inline-block;
+          background-color: @c64-border;
+          width: 16px;
+          height: 18px;
+          .animation(blinkingCursor, 1s, 0s, infinite);
+        }
       }
     }
   }
