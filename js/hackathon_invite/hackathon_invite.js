@@ -49,13 +49,17 @@ var hackathon_invite = {
         hackathon_invite.addOutputLine("loading invite.j64", hackathon_invite.checkOverflow);        
         break;
       case '?' :
-        hackathon_invite.addOutputLine("Available commands: list, load, ?", hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Available commands: list, load, ?, clear", hackathon_invite.checkOverflow);
         break;
       case 'help' :
-        hackathon_invite.addOutputLine("Available commands: list, load, ?", hackathon_invite.checkOverflow);                        
+        hackathon_invite.addOutputLine("Available commands: list, load, ?, clear", hackathon_invite.checkOverflow);                        
         break;
+      case 'clear' :
+        hackathon_invite.clearLines();
+        break;        
       default:
         hackathon_invite.addOutputLine("Invalid command: " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Try ? for list of commands. " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
         break;
     }
     callback();
@@ -64,6 +68,10 @@ var hackathon_invite = {
     var element = $('<p>').html(output);
     $('.c64-output > p:last').after(element);
     callback();
+  },
+  clearLines : function () {
+    $(".c64-output > p ").html("");
+    hackathon_invite.el.c64Output.animate({marginTop: '0em'},0);
   },
   clearInput : function () {
     hackathon_invite.el.currentInput.empty();
