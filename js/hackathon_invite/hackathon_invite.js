@@ -8,13 +8,18 @@ var hackathon_invite = {
     currentInput : $("#current-input"),
     c64Output : $(".c64-output"),
     inviteLoadingScreen : $(".invite-loading"),
-    inviteScreen : $(".invite")
+    inviteScreen : $(".invite"),
+    mainArticle : $("#main-article"),
+    upButton : $("#up"),
+    downButton : $("#down")
   },
   init : function () {
     this.bindUIElements();
   },
   bindUIElements : function () {
    this.el.browserWindowDocument.keydown(this.registerKey);
+   this.el.upButton.on("click", this.moveArticle);
+   this.el.downButton.on("click", this.moveArticle);
   },
   registerKey : function (event) {
     switch(event.which) {
@@ -90,6 +95,16 @@ var hackathon_invite = {
   },
   backspace : function (mystring) {
     return mystring.substr(0, mystring.length - 1);
+  },
+  moveArticle : function (event) {
+    switch(event.target.id) {
+      case 'down' : 
+        hackathon_invite.el.mainArticle.animate({marginTop: '-=4em'}, 100); 
+        break;
+      case 'up' : 
+        hackathon_invite.el.mainArticle.animate({marginTop: '+=4em'}, 100); 
+        break;
+    }
   }
 };
 
