@@ -44,6 +44,7 @@ var hackathon_invite = {
     }
   },
   inputInterpreter : function (callback) {
+    console.log(hackathon_invite.el.currentInput.text().toUpperCase());
     switch(hackathon_invite.el.currentInput.text().toUpperCase()) {
       case 'LIST':
         hackathon_invite.addOutputLine("Files available", hackathon_invite.checkOverflow);
