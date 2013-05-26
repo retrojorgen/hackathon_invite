@@ -82,7 +82,7 @@ body {
         left: 40%;
         width:100px;
         height:150px;
-        .animation(loadingCharacterMovement, 10s,0s, infinite);
+        .animation(loadingCharacterMovement, 10s,linear,0s, infinite);
         .character-animation {
           position: relative;
           width:100%;
@@ -103,13 +103,25 @@ body {
       top: 0;
       display: none;
       article {
-        padding-left: 40px;
-        padding-right: 40px;
+        #moonwalking-pony {
+          position: absolute;
+          left: 50%;
+          margin-left: -250px;
+          width: 500px;
+          height: 281px;
+          background-image: url(moonwalking-pony.gif);
+          margin-top: -500px;
+        }
+        position: relative;
+        z-index: 100;
+        padding-left: 8%;
+        padding-right: 12%;
         h1 {
           text-align: center;
-          font-size: 2em;
+          font-size: 3em;
           margin: 0;
           padding: 0;
+          text-shadow: 4px 6px @c64-input-background;
         }
         h2 {
           font-size: 0.6em;
@@ -120,6 +132,9 @@ body {
         h3 {
           border-bottom: 0.2em solid @c64-input-background;
         }
+        ol {
+          font-size: 0.8em;
+        }
       }
       &.show-block {
         display: block;
@@ -128,7 +143,8 @@ body {
         position: absolute;
         top: 2%;
         right: 2%;
-        width: 80px;
+        width: 10%;
+        z-index: 1000;
         #up,
         #down {
           font-family: @c64;
