@@ -67,7 +67,7 @@ var hackathon_invite = {
         break;        
       default:
         hackathon_invite.addOutputLine("Invalid command: " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
-        hackathon_invite.addOutputLine("Try help for list of commands. ", hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Type help for list of commands. ", hackathon_invite.checkOverflow);
         break;
     }
     callback();

@@ -102,6 +102,29 @@ body {
       background-color: #111111;
       top: 0;
       display: none;
+      .copper-1,
+      .copper-2,
+      .copper-3,
+      .copper-4 {
+        position: absolute;
+        height: 25%;
+        width: 100%;        
+      }
+      .copper-1{ 
+        .animation(colorCycle, 4s, 0s, infinite);
+      }
+      .copper-2{ 
+        .animation(colorCycle, 4s, 1s, infinite);
+        top: 25%;
+      }
+      .copper-3{ 
+        .animation(colorCycle, 4s, 2s, infinite);
+        top: 50%;
+      }
+      .copper-4{ 
+        .animation(colorCycle, 4s, 3s, infinite);
+        top: 75%;
+      }
       article {
         #moonwalking-pony {
           position: absolute;
@@ -131,6 +154,7 @@ body {
         }
         h3 {
           border-bottom: 0.2em solid @c64-input-background;
+          text-shadow: 2px 2px @c64-input-background;
         }
         ol {
           font-size: 0.8em;
