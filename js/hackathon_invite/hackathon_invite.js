@@ -32,10 +32,6 @@ var hackathon_invite = {
           hackathon_invite.el.currentInput.append(".");
           break;
         }
-        if(event.which == "190") {
-          hackathon_invite.el.currentInput.append(".");
-          break;
-        }
         console.log(event.which);        
         hackathon_invite.el.currentInput.append(String.fromCharCode(event.which));
       break; 
