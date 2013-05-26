@@ -56,6 +56,32 @@
 @-o-keyframes colorCycle {.colorcycleKeyframes;}
 @keyframes colorCycle {.colorcycleKeyframes;}
 
+@-webkit-keyframes loadingWrapper {.loadingWrapperKeyframes;}
+@-moz-keyframes loadingWrapper {.loadingWrapperKeyframes;}
+@-ms-keyframes loadingWrapper {.loadingWrapperKeyframes;}
+@-o-keyframes loadingWrapper {.loadingWrapperKeyframes;}
+@keyframes loadingWrapper {.loadingWrapperKeyframes;}
+
+@-webkit-keyframes loading {.loadingKeyframes;}
+@-moz-keyframes loading {.loadingKeyframes;}
+@-ms-keyframes loading {.loadingKeyframes;}
+@-o-keyframes loading {.loadingKeyframes;}
+@keyframes loading {.loadingKeyframes;}
+
+
+.loadingKeyframes () {
+  94.9% {
+    opacity: 1;
+    background-color: #000000;}
+  95% {background-color: #FFFFFF;}
+}
+
+.loadingWrapperKeyframes () {
+  10%  {opacity: 1;}
+  94.9%  {opacity: 1;}
+  95% {opacity: 0;}
+}
+
 .colorcycleKeyframes () {
   20%  {background-color : #1c0614;}
   40%  {background-color : #370d27;} 

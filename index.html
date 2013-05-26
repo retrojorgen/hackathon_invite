@@ -40,11 +40,17 @@
         <div><p id="current-input"></p><p id="blinker"></p></div>
       </div>
       <div class="invite-loading">
-        <div class="invite-loading-header">
-          <h1>loading and wasting your time*</h1>
-        <h2>* Not really loading anything. Just waisting your time.<h2></div>
-
-        <div class="character-animation-container"><div class="character-animation"></div></div>
+        <div class="invite-loading-overlay"></div>
+        <div class="invite-loading-wrapper">
+          <div class="invite-loading-header">
+            <h1>loading and wasting your time*</h1>
+            <h2>* Not really loading anything. Just waisting your time.<h2>
+          </div>
+          <div class="character-animation-container">
+            <div class="character-animation">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="invite">
         <div class="copper-1"></div>
@@ -57,6 +63,10 @@
         </div>
         <article id="main-article">
           <div id="moonwalking-pony"></div>
+          <audio controls class="audio-controls" id="main-article-audio">
+            <source src="songs/mycopcar.ogg" type="audio/ogg">
+          Your browser does not support the audio element.
+          </audio>
           <hgroup>
             <h1>HACKATHON 2013<H1>
             <H2>Welcome to this years Hackathon event at Fronter!</h2>
@@ -68,7 +78,7 @@
             to the Hackathon formula.
             <ol>
               <li>This years Hackathon will be hosted by Thomas Malt, Kent Fjellstad, Christopher Williams and Jørgen Jacobsen.</li>
-              <li>We are not going arrange the Hackathon at Fronter, this years event will be held at an remote location.</li> 
+              <li>We are not going arrange the Hackathon at Fronter, this years event will be held at an remote location. We need to get away from the office to hack properly!</li> 
               <li>The competition rules will not be as strict as previous years, the object is to have fun!</li>
             </ol>
           </p>

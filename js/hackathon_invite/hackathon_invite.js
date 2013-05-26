@@ -11,7 +11,8 @@ var hackathon_invite = {
     inviteScreen : $(".invite"),
     mainArticle : $("#main-article"),
     upButton : $("#up"),
-    downButton : $("#down")
+    downButton : $("#down"),
+    mainArticleAudio : $("#main-article-audio")
   },
   init : function () {
     this.bindUIElements();
@@ -74,6 +75,7 @@ var hackathon_invite = {
   },
   loadInvite : function () {
     hackathon_invite.el.inviteScreen.addClass("show-block");
+    hackathon_invite.el.mainArticleAudio.get(0).play();
   },
   addOutputLine : function (output, callback) {
     var element = $('<p>').html(output);
