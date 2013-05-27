@@ -29,6 +29,10 @@ var hackathon_invite = {
         event.preventDefault(); 
         hackathon_invite.el.currentInput.text(hackathon_invite.backspace(hackathon_invite.el.currentInput.text()));
         break;
+      case 9:
+        event.preventDefault();
+        hackathon_invite.addOutputLine("There was no tab completion in 1984. Recognize!", hackathon_invite.checkOverflow);
+        break;  
       case 13:
         hackathon_invite.inputInterpreter(function () {
           hackathon_invite.clearInput();
