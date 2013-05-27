@@ -12,7 +12,8 @@ var hackathon_invite = {
     mainArticle : $("#main-article"),
     upButton : $("#up"),
     downButton : $("#down"),
-    mainArticleAudio : $("#main-article-audio")
+    mainArticleAudio : $("#main-article-audio"),
+    inviteLoadingAudio : $("#invite-loading-audio")
   },
   init : function () {
     this.bindUIElements();
@@ -56,6 +57,7 @@ var hackathon_invite = {
         break;
       case 'LOAD INVITE.J64':
         hackathon_invite.el.inviteLoadingScreen.addClass("show-block");
+        hackathon_invite.el.inviteLoadingAudio.get(0).play();
         setTimeout(hackathon_invite.loadInvite, 10000);
         break;
       case '?' :
@@ -75,6 +77,7 @@ var hackathon_invite = {
     callback();
   },
   loadInvite : function () {
+    hackathon_invite.el.inviteLoadingAudio.get(0).pause();
     hackathon_invite.el.inviteScreen.addClass("show-block");
     hackathon_invite.el.mainArticleAudio.get(0).play();
   },

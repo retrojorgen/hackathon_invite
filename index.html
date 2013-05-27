@@ -24,6 +24,7 @@
   -->
 <html lang="en">
 <head>
+  <meta name="robots" content="noindex">
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0">
   <title>JØRGODORE 64</title>
@@ -40,6 +41,9 @@
         <div><p id="current-input"></p><p id="blinker"></p></div>
       </div>
       <div class="invite-loading">
+        <audio id="invite-loading-audio">
+          <source src="songs/moonwalk.ogg" type="audio/ogg">
+        </audio>        
         <div class="invite-loading-overlay"></div>
         <div class="invite-loading-wrapper">
           <div class="invite-loading-header">
@@ -65,7 +69,6 @@
           <div id="moonwalking-pony"></div>
           <audio controls class="audio-controls" id="main-article-audio">
             <source src="songs/mycopcar.ogg" type="audio/ogg">
-          Your browser does not support the audio element.
           </audio>
           <hgroup>
             <h1>HACKATHON 2013</h1>
