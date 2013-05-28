@@ -15,7 +15,11 @@ var hackathon_invite = {
     mainArticleAudio : $("#main-article-audio"),
     inviteLoadingAudio : $("#invite-loading-audio")
   },
+  backgroundMusic : null,
   init : function () {
+    this.backgroundMusic = new Audio("songs/mycopcar.ogg");
+    this.backgroundMusic.loop = true;
+    this.backgroundMusic.play();
     this.bindUIElements();
   },
   bindUIElements : function () {
@@ -65,14 +69,25 @@ var hackathon_invite = {
         setTimeout(hackathon_invite.loadInvite, 10000);
         break;
       case '?' :
-        hackathon_invite.addOutputLine("Available commands: list, load, help, clear", hackathon_invite.checkOverflow);
+        hackathon_invite.addOutputLine("Available commands: list, load, music, help, clear", hackathon_invite.checkOverflow);
         break;
       case 'HELP' :
-        hackathon_invite.addOutputLine("Available commands: list, load, help, clear", hackathon_invite.checkOverflow);                        
+        hackathon_invite.addOutputLine("Available commands: list, load, music, help, clear", hackathon_invite.checkOverflow);
         break;
       case 'CLEAR' :
         hackathon_invite.clearLines();
         break;        
+      case 'MUSIC':
+      hackathon_invite.addOutputLine("Please specify if you want it ON or OFF", hackathon_invite.checkOverflow);
+        break;
+      case 'MUSIC ON':
+        this.backgroundMusic.play();
+        hackathon_invite.addOutputLine("The music is now ON!", hackathon_invite.checkOverflow);
+        break;
+      case 'MUSIC OFF':
+        this.backgroundMusic.pause();
+        hackathon_invite.addOutputLine("Music was turned OFF", hackathon_invite.checkOverflow);
+        break;
       default:
         hackathon_invite.addOutputLine("Invalid command: " + hackathon_invite.el.currentInput.text(), hackathon_invite.checkOverflow);
         hackathon_invite.addOutputLine("Type help for list of commands. (DO NOT USE SHIFT WHILE TYPING)", hackathon_invite.checkOverflow);
