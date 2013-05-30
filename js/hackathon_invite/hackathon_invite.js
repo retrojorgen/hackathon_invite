@@ -1,25 +1,24 @@
 var hackathon_invite = {
   gvar : {
+    backgroundMusic       : new Audio("songs/mycopcar.ogg"),
+    introBackgroundMusic  : new Audio("songs/moonwalk.ogg")
   },
   el : {
-    browserWindow : $(window),
+    browserWindow         : $(window),
     browserWindowDocument : $(document),
-    body : $('body'),
-    currentInput : $("#current-input"),
-    c64Output : $(".c64-output"),
-    inviteLoadingScreen : $(".invite-loading"),
-    inviteScreen : $(".invite"),
-    mainArticle : $("#main-article"),
-    upButton : $("#up"),
-    downButton : $("#down"),
-    mainArticleAudio : $("#main-article-audio"),
-    inviteLoadingAudio : $("#invite-loading-audio")
+    body                  : $('body'),
+    currentInput          : $("#current-input"),
+    c64Output             : $(".c64-output"),
+    inviteLoadingScreen   : $(".invite-loading"),
+    inviteScreen          : $(".invite"),
+    mainArticle           : $("#main-article"),
+    upButton              : $("#up"),
+    downButton            : $("#down"),
+    mainArticleAudio      : $("#main-article-audio"),
+    inviteLoadingAudio    : $("#invite-loading-audio")
   },
-  backgroundMusic : null,
-  init : function () {
-    this.backgroundMusic = new Audio("songs/mycopcar.ogg");
-    this.backgroundMusic.loop = true;
-    this.backgroundMusic.play();
+  init : function () { 
+    this.gvar.backgroundMusic.loop = true;
     this.bindUIElements();
   },
   bindUIElements : function () {
@@ -31,7 +30,7 @@ var hackathon_invite = {
     switch(event.which) {
       case 8:
         event.preventDefault(); 
-        hackathon_invite.el.currentInput.text(hackathon_invite.backspace(hackathon_invite.el.currentInput.text()));
+          hackathon_invite.el.currentInput.text(hackathon_invite.backspace(hackathon_invite.el.currentInput.text()));
         break;
       case 9:
         event.preventDefault();
@@ -47,13 +46,11 @@ var hackathon_invite = {
           hackathon_invite.el.currentInput.append(".");
           break;
         }
-        console.log(event.which);        
         hackathon_invite.el.currentInput.append(String.fromCharCode(event.which));
       break; 
     }
   },
   inputInterpreter : function (callback) {
-    console.log(hackathon_invite.el.currentInput.text().length);
     switch(hackathon_invite.el.currentInput.text().toUpperCase()) {
       case 'LIST':
         hackathon_invite.addOutputLine("Files available", hackathon_invite.checkOverflow);
@@ -65,7 +62,8 @@ var hackathon_invite = {
         break;
       case 'LOAD INVITE.J64':
         hackathon_invite.el.inviteLoadingScreen.addClass("show-block");
-        hackathon_invite.el.inviteLoadingAudio.get(0).play();
+        this.gvar.backgroundMusic.pause();
+        hackathon_invite.gvar.introBackgroundMusic.play();
         setTimeout(hackathon_invite.loadInvite, 10000);
         break;
       case '?' :
@@ -81,7 +79,7 @@ var hackathon_invite = {
       hackathon_invite.addOutputLine("Please specify if you want it ON or OFF", hackathon_invite.checkOverflow);
         break;
       case 'MUSIC ON':
-        this.backgroundMusic.play();
+        this.gvar.backgroundMusic.play();
         hackathon_invite.addOutputLine("The music is now ON!", hackathon_invite.checkOverflow);
         break;
       case 'MUSIC OFF':
@@ -96,9 +94,9 @@ var hackathon_invite = {
     callback();
   },
   loadInvite : function () {
-    hackathon_invite.el.inviteLoadingAudio.get(0).pause();
+    hackathon_invite.gvar.backgroundMusic.currentTime = 0;
+    hackathon_invite.gvar.backgroundMusic.play();
     hackathon_invite.el.inviteScreen.addClass("show-block");
-    hackathon_invite.el.mainArticleAudio.get(0).play();
   },
   addOutputLine : function (output, callback) {
     var element = $('<p>').html(output);
