@@ -12,6 +12,7 @@ var hackathon_invite = {
     inviteLoadingScreen   : $(".invite-loading"),
     inviteScreen          : $(".invite"),
     mainArticle           : $("#main-article"),
+    closeButton            : $("#close"),
     upButton              : $("#up"),
     downButton            : $("#down"),
     mainArticleAudio      : $("#main-article-audio"),
@@ -25,6 +26,7 @@ var hackathon_invite = {
    this.el.browserWindowDocument.keydown(this.registerKey);
    this.el.upButton.on("click", this.moveArticle);
    this.el.downButton.on("click", this.moveArticle);
+   this.el.closeButton.on("click", this.closeArticle);
   },
   registerKey : function (event) {
     switch(event.which) {
@@ -128,6 +130,11 @@ var hackathon_invite = {
         hackathon_invite.el.mainArticle.animate({marginTop: '+=4em'}, 100); 
         break;
     }
+  },
+  closeArticle : function(event) {
+    hackathon_invite.el.inviteLoadingScreen.removeClass('show-block');
+    hackathon_invite.el.inviteScreen.removeClass('show-block');
+    hackathon_invite.gvar.backgroundMusic.pause();
   }
 };
 

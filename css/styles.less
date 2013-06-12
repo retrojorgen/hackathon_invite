@@ -264,7 +264,32 @@ body {
       &.show-block {
         display: block;
       }
-      .button-group {
+      .button-group-left {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 5%;
+        z-index: 1000;
+        #close {
+          font-family: @c64;
+          font-size: 1.1em;
+          width: 100%;
+          height: 40px;
+          border: 0;
+          margin: 0;
+          padding: 0;
+          color: @c64-border;
+          background-color: @c64-button-background;
+          box-shadow: -4px 5px 0px 0px @c64-button-shadow;
+          &:hover {
+            background-color: darken(@c64-button-background, 10%);
+          }
+          &:active {
+           background-color: darken(@c64-button-background, 20%); 
+          }
+        }
+      }
+      .button-group-right {
         position: absolute;
         top: 2%;
         right: 2%;
