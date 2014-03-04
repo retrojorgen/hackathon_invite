@@ -1,5 +1,7 @@
-Hackathon Invite
+Company Hackathon Invitation Teaser
 ================
 
 Invite for a company hackathon.
-Still running at http://hackathon.fronter.org
+
+Compiles less real-time on load. 
+Write anything in the console to get help.
